@@ -1,1 +1,13 @@
+npm install npm@latest
+
 npm i -g create-react-app
+
+Get-ExecutionPolicy -List
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+create-react-app <appname>
+
+cd to the <appname> folder and run the following command
+
+npm start
