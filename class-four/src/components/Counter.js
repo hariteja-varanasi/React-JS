@@ -9,9 +9,22 @@ class Counter extends Component {
         }
     }
 
+    componentWillMount() {
+        console.log("componentWillMount called");
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount called");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("inside componentDidUpdate");
+    }
+
     render() {
+        console.log("render called");
         return (
-            <div className="container-fluid">
+            <div className="container-fluid text-center">
                 <div className="row">
                     <div className="col">
                         <div className="lead p-3 m-3">
@@ -21,6 +34,7 @@ class Counter extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
+                        <h1 className="display-1 text-primary">count = {this.props.num}</h1>
                         <h1 className="display-1">
                             {
                                 this.state.view ? "Welcome to React Lifecycle" : "Need More Counts"

@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import ReactDOM from "react-dom/client";
+import Counter from "./components/Counter";
+import root from './index';
 
 class App extends Component {
     constructor(props) {
@@ -6,12 +9,22 @@ class App extends Component {
     }
 
     mount() {
-        alert('mount clicked');
+        //alert('mount clicked');
+        const rootOne = ReactDOM.createRoot(document.getElementById('renderHere'));
+        rootOne.render(
+            <React.StrictMode>
+                <Counter num={0} />
+            </React.StrictMode>
+        );
     }
 
     unMount() {
-        alert('unmount clicked');
+        //alert('unmount clicked');
+        const rootOne = ReactDOM.createRoot(document.getElementById('renderHere'));
+        rootOne.unmount();
     }
+
+
 
     render() {
         return (
@@ -30,6 +43,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
+                <div id="renderHere"></div>
             </div>
         );
     }
