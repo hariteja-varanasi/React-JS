@@ -13,7 +13,7 @@ class App extends Component {
         const rootOne = ReactDOM.createRoot(document.getElementById('renderHere'));
         rootOne.render(
             <React.StrictMode>
-                <Counter num={0} />
+                <Counter num={0} root={rootOne}/>
             </React.StrictMode>
         );
     }
