@@ -1,17 +1,23 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Menu from "./components/Menu";
+import {BrowserRouter, Router, Routes, Route} from "react-router-dom";
+import Home from "./components/Home";
+import PageNotFound from "./components/PageNotFound";
+import Track from "./components/Track";
+
 
 function App() {
   return (
-    <div className="App">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="offset-3 col-md-6">
-            <h1 className="display-1 text-center bg-warning py-3">Music Player App</h1>
-            </div>
-          </div>
-      </div>
-    </div>
+      <BrowserRouter>
+          <Menu />
+          <Routes>
+              <Route path={`/`} element={<Home />} />
+              <Route path={`/home`} element={<Home />} />
+              <Route path={`/track/:id`} element={<Track />} props={{'trackId': 1}} />
+              <Route path={`/*`} element={<PageNotFound />} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 

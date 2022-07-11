@@ -1,0 +1,3 @@
+export const auth = {
+    token: "Bearer BQA4b37iKZtF3rtkfRsEMFTYYx9jASWLR4V_RibG8xH99FhRh_sMZiOHH6rytntvpuFt0Ro4SMe6P0W1HRMnahH_TZa8lLWzuNARubfrKho38fCJNo21RrcQ3UWq1UWbSa3LhAdIvV3dRlp41Ws2B55WwYFUE18PIHyyUeZO-5VPteZWCuHdvss99pnVWwftF6Cl48zFYwBaZml2PFHAUms"
+}
