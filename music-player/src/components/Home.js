@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { auth } from "../token";
+import { NavLink } from "react-router-dom";
+import Search from "./Search";
 
 const URL = "https://api.spotify.com";
 
@@ -16,18 +18,14 @@ const reqOptions = {
 
 function Home(props) {
 
-    const [artist, setArtist] = useState([]);
-
-    useEffect(() => {
-        searchHandler("Marilyn Manson")
-    }, []);
+    const [artists, setArtists] = useState([]);
 
     const searchHandler = (name) => {
         fetch(`${URL}/v1/search?q=${name}&type=artist`, reqOptions)
             .then(res => res.json())
             .then(output => {
                 console.log("output is : ", output);
-                setArtist(output.artists.items)
+                output.artists && setArtists(output.artists.items);
             })
             .catch(error => {
                 console.log(error.message)
@@ -43,10 +41,11 @@ function Home(props) {
                 </div>
             </div>
 
+            <Search search={searchHandler} />
             <div className="row">
                 {
-                    artist.map((item, index) => {
-                        const { name, images, popularity, genres, followers, type } = item
+                   artists && artists.length > 0 ? artists.map((item, index) => {
+                        const { id, name, images, popularity, genres, followers, type } = item
                         return (
                             <div className="col-md-4 my-3" key={index}>
                                 <div className="card">
@@ -71,10 +70,18 @@ function Home(props) {
                                             <span id="type" className="fs-3 float-end">{type}</span>
                                         </div>
                                     </div>
+                                    <div className="card-footer">
+                                    <NavLink to={`/track/${id}`} className="btn btn-outline-primary fs-3">Track</NavLink>
+                                    </div>
                                 </div>
                             </div>
                         )
-                    })
+                    }) :
+                       (
+                           <div className="col-md-12 my-3 text-center">
+                               <h1 className="display-1">No Artists Found</h1>
+                           </div>
+                       )
                 }
             </div>
         </div>
