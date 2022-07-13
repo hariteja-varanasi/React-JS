@@ -8,6 +8,7 @@ const URL = "https://api.spotify.com";
 //api headers
 const apiHeaders = new Headers();
 apiHeaders.append("Authorization", `${auth.token}`);
+//apiHeaders.append("Authorization", window.localStorage.getItem("token"));
 
 //ajax header options
 const reqOptions = {

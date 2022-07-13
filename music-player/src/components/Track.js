@@ -8,6 +8,7 @@ const URL = "https://api.spotify.com";
 //api headers
 const apiHeaders = new Headers();
 apiHeaders.append("Authorization", `${auth.token}`);
+//apiHeaders.append("Authorization", window.localStorage.getItem("token"));
 
 //ajax header options
 const reqOptions = {
@@ -24,9 +25,9 @@ function Track(props) {
 
     const [tracks, setTracks] = useState([]);
 
-    const [audio, setAudio] = useState();
-    const[playing, setPlaying] = useState(false);
-    const [preUrl, setPreUrl] = useState(null);
+    const [audio, setAudio] = useState(null);// create a custom audio player
+    const[playing, setPlaying] = useState(false);// play and pause states
+    const [preUrl, setPreUrl] = useState(null);// track URL
 
     useEffect(() => {
         getTracks()
@@ -44,10 +45,26 @@ function Track(props) {
             })
     }
 
-    const playTrack = () => {
+    const playTrack = (url) => {
+        //Create instance for an Audio constructor
+        const myAudio = new Audio(url);
         console.log("play track function");
-        setPlaying(true);
-
+        if(!playing) {
+            myAudio.play();
+            setAudio(myAudio);
+            setPlaying(true);
+            setPreUrl(url);
+        }
+        else {
+            audio.pause();
+            if(preUrl === url) {
+                setPlaying(false);
+            } else {
+                myAudio.play();
+                setAudio(myAudio);
+                setPreUrl(url);
+            }
+        }
     }
 
     const trackIcon = (url) => {
@@ -72,7 +89,7 @@ function Track(props) {
                         const {id, name, album, preview_url} = track
                         return (
                             <div className="col-md-4 mb-2 mt-2" key={index}>
-                                <div className="card">
+                                <div className="card" onClick={() => playTrack(preview_url)} style={{cursor: 'pointer'}}>
                                     <div className="card-header">
                                         <img src={album.images[0].url} alt="" className="card-img-top" />
                                     </div>
