@@ -1,14 +1,35 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "name": "typicode"
+  },
   "users": [
     {
-
+      "name": "asdasdasd",
+      "email": "asdasd@adasdasd.asdas",
+      "mobile": "asdsadsad",
+      "address": "asdasdasdasd",
+      "id": 1
+    },
+    {
+      "name": "zxzxczxc",
+      "email": "asdfasdfdasf@dasfdsf.aasdf",
+      "mobile": "dafadfadf",
+      "address": "sdfadfdasfsdaf",
+      "id": 2
     }
   ]
 }

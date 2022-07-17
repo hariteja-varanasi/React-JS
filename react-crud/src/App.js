@@ -8,14 +8,18 @@ import Update from "./component/Update";
 import Delete from "./component/Delete";
 import PageNotFound from "./component/PageNotFound";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
       <BrowserRouter>
           <Menu />
+          <ToastContainer autoClose={5000} position={'top-right'} />
           <div className="container-fluid">
               <Routes>
                   <Route
-                    path={`/create/user`}
+                    path={`/create`}
                     element={<Create />}
                     exact
                   />
