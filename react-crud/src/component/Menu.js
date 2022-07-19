@@ -14,7 +14,7 @@ function Menu(props) {
                 <div className={"collapse navbar-collapse"} id="menu">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink to={`/home`} className="nav-link fs-3">Home</NavLink>
+                            <NavLink to={`/users`} className="nav-link fs-3">Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink to={`/create`} className="nav-link fs-3">Create</NavLink>

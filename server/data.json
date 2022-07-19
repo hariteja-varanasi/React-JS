@@ -18,18 +18,11 @@
   },
   "users": [
     {
-      "name": "asdasdasd",
-      "email": "asdasd@adasdasd.asdas",
-      "mobile": "asdsadsad",
-      "address": "asdasdasdasd",
+      "name": "HV",
+      "email": "h@h.h",
+      "mobile": "m",
+      "address": "a",
       "id": 1
-    },
-    {
-      "name": "zxzxczxc",
-      "email": "asdfasdfdasf@dasfdsf.aasdf",
-      "mobile": "dafadfadf",
-      "address": "sdfadfdasfsdaf",
-      "id": 2
     }
   ]
 }

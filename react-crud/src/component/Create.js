@@ -1,6 +1,7 @@
 import React, {Fragment, useRef, useState} from 'react';
 import UserAPI from "../api/UserAPI";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 function Create(props) {
 
@@ -8,6 +9,8 @@ function Create(props) {
     const email = useRef();
     const mobile = useRef();
     const address = useRef();
+
+    const history = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -20,9 +23,10 @@ function Create(props) {
         UserAPI.create(formData).then(
             res => {
                 toast.success("User created successfully.");
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 5000)
+                // setTimeout(() => {
+                //     history("/");
+                // }, 5000)
+                history(`/`);
             }
         ).catch(
             error => toast.error(error.message)
